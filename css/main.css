@@ -201,6 +201,7 @@ main {
     vertical-align: bottom; }
     .project_container .project a img.work_img {
       width: 100%;
+      cursor: default;
       transition: all 500ms ease-out;
       border: 2px solid white; }
       .project_container .project a img.work_img:hover {
@@ -230,6 +231,12 @@ main {
   .project_container .project .btn_light {
     background-color: #c4c4c4;
     color: #2c2c2c; }
+  .project_container .project-1 .btn_light {
+    cursor: default; }
+  .project_container .project-3 .btn_light {
+    cursor: default; }
+  .project_container .project-4 .btn_light {
+    cursor: default; }
 
 .contact_container {
   display: flex;
@@ -310,6 +317,8 @@ footer {
       font-size: 2rem; }
   main .socials a > img {
     width: 50px; }
+  .bio_container .bio_img {
+    width: 200px; }
   .project_container {
     grid-template-columns: 1fr; }
   .contact_container div {

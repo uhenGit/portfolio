@@ -1,25 +1,63 @@
-.line_wrap {
+.wrap {
+  display: flex;
   position: absolute;
   z-index: 3;
   top: 35px;
-  right: 35px;
-  cursor: pointer;
-  transition: all 500ms ease-out; }
-  .line_wrap .line {
-    display: block;
-    width: 30px;
-    height: 3px;
-    margin: 0 0 5px 0;
-    background-color: white;
+  right: 35px; }
+  .wrap .toggler {
+    cursor: pointer;
+    position: relative;
+    top: -7px;
+    height: 35px;
+    margin-right: 2rem;
+    visibility: hidden; }
+    .wrap .toggler.show {
+      visibility: visible; }
+    .wrap .toggler input {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      width: 70px;
+      height: 35px;
+      outline: none;
+      border-radius: 35px;
+      background-color: white;
+      margin: 0; }
+      .wrap .toggler input::before {
+        transition: all 500ms ease-out;
+        position: absolute;
+        color: #444444;
+        background-color: #eece1a;
+        border-radius: 50%;
+        top: 49%;
+        left: 5px;
+        transform: translateY(-50%);
+        z-index: 4;
+        content: attr(data-lang);
+        width: 27px;
+        height: 24px;
+        text-align: center;
+        padding-top: 3px; }
+      .wrap .toggler input:checked::before {
+        left: 40px; }
+  .wrap .line_wrap {
+    cursor: pointer;
     transition: all 500ms ease-out; }
-  .line_wrap.cross {
-    transform: rotate(180deg); }
-    .line_wrap.cross .line:nth-child(1) {
-      transform: rotate(45deg) translate(5px, 5px); }
-    .line_wrap.cross .line:nth-child(2) {
-      opacity: 0; }
-    .line_wrap.cross .line:nth-child(3) {
-      transform: rotate(-45deg) translate(7px, -6px); }
+    .wrap .line_wrap .line {
+      display: block;
+      width: 30px;
+      height: 3px;
+      margin: 0 0 5px 0;
+      background-color: white;
+      transition: all 500ms ease-out; }
+    .wrap .line_wrap.cross {
+      transform: rotate(180deg); }
+      .wrap .line_wrap.cross .line:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px); }
+      .wrap .line_wrap.cross .line:nth-child(2) {
+        opacity: 0; }
+      .wrap .line_wrap.cross .line:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px); }
 
 .nav {
   position: fixed;
@@ -178,7 +216,7 @@ main {
   margin: auto;
   border: 3px solid #eece1a;
   border-radius: 50%;
-  width: 300px;
+  width: 250px;
   height: auto; }
 
 .my_bio {
@@ -235,8 +273,6 @@ main {
     cursor: default; }
   .project_container .project-3 .btn_light {
     cursor: default; }
-  .project_container .project-4 .btn_light {
-    cursor: default; }
 
 .contact_container {
   display: flex;
@@ -275,12 +311,24 @@ footer {
     grid-template-columns: repeat(3, 1fr); } }
 
 @media screen and (max-width: 768px) {
+  .wrap {
+    right: 20px;
+    flex-direction: column-reverse;
+    align-items: flex-end; }
+    .wrap .toggler {
+      margin-right: 0;
+      margin-top: 1rem; }
+      .wrap .toggler input {
+        width: 37px; }
+        .wrap .toggler input:checked::before {
+          left: 5px; }
   main {
     align-items: center;
     text-align: center; }
     main h1 {
       line-height: 1;
-      margin-bottom: 1.5rem; }
+      margin-bottom: 1.5rem;
+      margin-top: 2rem; }
       main h1.large {
         font-size: 4rem; }
   .nav {

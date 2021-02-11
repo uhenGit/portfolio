@@ -258,6 +258,7 @@ main.home h1 {
   width: 100%;
   transition: all 500ms ease-out;
   border: 2px solid white;
+  padding: 0;
 }
 .project_container .project a img.work_img:hover {
   opacity: 0.7;

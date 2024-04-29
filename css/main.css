@@ -1,3 +1,10 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+}
+
 .line_wrap {
   position: absolute;
   z-index: 3;
@@ -54,8 +61,6 @@
   overflow: hidden;
 }
 .nav .menu {
-  margin: 0;
-  padding: 0;
   background: #373737;
   list-style: none;
   transform: translateY(-100%) rotateY(90deg);
@@ -133,7 +138,6 @@ body {
   background-color: #444444;
   color: white;
   height: 100%;
-  margin: 0;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.5;
 }
@@ -156,41 +160,43 @@ body.bckg_img:after {
 h1,
 h2,
 h3 {
-  margin: 0;
   font-weight: 400;
 }
-h1.large,
-h2.large,
-h3.large {
+h1.lg,
+h2.lg,
+h3.lg {
   font-size: 5rem;
 }
-h1.small,
-h2.small,
-h3.small {
+h1.sm,
+h2.sm,
+h3.sm,
+h4.sm {
   margin-bottom: 2rem;
   padding: 0.2rem 1rem;
 }
+h5.sm {
+  margin: 0.7rem 0;
+  padding: 0.5rem;
+}
 h1.profession,
 h2.profession,
-h3.profession {
+h3.profession,
+h4.profession,
+h5.profession {
   background: rgba(73, 73, 73, 0.5);
 }
-
 a {
   color: white;
   text-decoration: none;
 }
-
 header {
   position: fixed;
   z-index: 2;
   width: 100%;
 }
-
 .color_secondary {
   color: #eece1a;
 }
-
 main {
   min-height: calc(100vh - 60px);
   padding: 3rem;
@@ -211,12 +217,26 @@ main.home {
 main.home h1 {
   margin-top: 20vh;
 }
-
+.hint {
+  display: block;
+  font-size: 0.7rem;
+}
+.disabled {
+  pointer-events: none;
+  cursor: not-allowed;
+}
+.w-80 {
+  max-width: 80%;
+}
 .my_bio {
   grid-area: job;
   padding-right: 2rem;
 }
 
+.container_10 {
+  display: block;
+  width: 10%;
+}
 .bio_container {
   display: grid;
   grid-gap: 30px;
@@ -246,13 +266,12 @@ main.home h1 {
 .project_container .project a img {
   width: 2rem;
   vertical-align: bottom;
-  padding-right: 5px;
+  /* padding-right: 5px; */
 }
 .project_container .project a img.work_img {
   width: 100%;
   transition: all 500ms ease-out;
   border: 2px solid white;
-  padding: 0;
 }
 .project_container .project a img.work_img:hover {
   opacity: 0.7;
@@ -263,32 +282,50 @@ main.home h1 {
 .project_container .project a:last-child > img {
   filter: invert(100%);
 }
-.project_container .project .btn,
-.project_container .project .btn_dark,
-.project_container .project .btn_light {
+article.description {
+  line-height: 2;
+  margin: 0 auto;
+}
+article.description img {
+  margin-right: 2rem;
+  width: 35%;
+  float: left;
+}
+article.description ul li a {
+  color: #00ffff;
+}
+.btn,
+.btn_dark,
+.btn_light {
+  text-align: center;
   display: block;
   padding: 1rem;
   border: none;
-  margin: 0.5rem 0;
+  margin: 0.5rem auto;
   transition: all 500ms ease-out;
 }
-.project_container .project .btn:hover,
-.project_container .project .btn_dark:hover,
-.project_container .project .btn_light:hover {
+.btn:hover,
+.btn_dark:hover,
+.btn_light:hover {
   background-color: #eece1a;
   color: black;
   border-radius: 3px;
   box-shadow: 2px 2px 10px #888888;
 }
-.project_container .project .btn_dark {
+.btn_dark {
   background-color: black;
   color: white;
 }
-.project_container .project .btn_light {
+.btn_light {
   background-color: #c4c4c4;
   color: #2c2c2c;
 }
-
+.btn_dark img,
+.btn_light img {
+  width: 2rem;
+  vertical-align: bottom;
+  padding-right: 5px;
+}
 .contact_container {
   display: flex;
   flex-wrap: wrap;
@@ -322,6 +359,10 @@ footer {
   color: white;
 }
 
+.m-0 {
+  margin: 0;
+}
+
 @media screen and (min-width: 1171px) {
   .project_container {
     grid-template-columns: repeat(4, 1fr);
@@ -343,7 +384,7 @@ footer {
     line-height: 1;
     margin-bottom: 1.5rem;
   }
-  main h1.large {
+  main h1.lg {
     font-size: 4rem;
   }
   .nav .my_pic,
@@ -386,7 +427,7 @@ footer {
   main h1 {
     margin-top: 10vh;
   }
-  main h1.large {
+  main h1.lg {
     font-size: 2rem;
   }
   main .socials a > img {
